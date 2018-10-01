@@ -1,0 +1,12 @@
+{
+  "name": "Вебхук на Python3",
+  "description": "Это шаблон вебхука для бота на платформе Aimylogic. После установки вы сможете скачать и изменять его код.",
+  "repository": "https://github.com/denire/python-webhook",
+  "logo": "https://cdn.worldvectorlogo.com/logos/python-4.svg",
+  "website": "http://aimylogic.com",
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
