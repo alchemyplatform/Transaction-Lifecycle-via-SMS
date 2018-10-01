@@ -1,6 +1,6 @@
 ## Python webhook template
 
-Please read more about Aimylogic webhooks in our [Help Center](https://help.aimylogic.com/en/article/webhook-14yx2uz/
+Please read more about Aimylogic webhooks in our [Help Center](https://help.aimylogic.com/en/article/webhook-14yx2uz/).
 
 ## How to run on Heroku
 [heroku.com](http://heroku.com) provides a free plan for Python applications.
