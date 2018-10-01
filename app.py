@@ -13,10 +13,10 @@ def request_handler():
     if request.method == 'GET':
         href = '<a href="http://aimylogic.com" ' \
                'target="_blank">aimylogic.com</a> '
-        more = '<a href="https://github.com/Denire/python-webhook" ' \
-               'target="_blank">Подробнее</a> '
+        more = '<a href="https://github.com/aimylogic/python-webhook" ' \
+               'target="_blank">More</a> '
 
-        return f'<p>Укажите этот URL в настройках вашего бота на {href}</p>' \
+        return f'<p>Copy this URL and paste it in your bot settings.' \
                f'{more}', 200
 
     session = request.json
@@ -24,12 +24,10 @@ def request_handler():
     return webhook(session), 200
 
 def run():
-    print('test restart. One more restart')
-    print(' * Вы можете использовать ngrok, чтобы дать возможность серверу Aimylogic увидеть ваш вебхук.'
+    print(' * Use ngrok to tunnel your localhost to Aimylogic.'
           '\n * ./ngrok http 5000 || ngrok.exe http 5000 (windows)'
-          '\n * Вы увидите временный URL для вашего вебхука в консоли. Скопируйте его и вставьте в настройках вашего '
-          'бота на aimylogic.com в поле "Вебхук для тестов". После этого, когда вы будете тестировать вашего бота в '
-          'тестовом виджете, все запросы будут приходить к серверу на вашей машине.')
+          '\n * This will generate temporary URL in terminal.  Copy it and paste into the field named "Webhook for tests" in your bot\'s settings. '
+          'All requests to your webhook will go to your local machine while you test your bot scenario via a test widget on Aimylogic.')
     app.run(host='0.0.0.0', port=5000)
 
 
