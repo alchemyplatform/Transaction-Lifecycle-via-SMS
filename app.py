@@ -11,7 +11,7 @@ app.debug = True
 @app.route('/', methods=['POST', 'GET'])
 def request_handler():
     if request.method == 'POST':
-    data = request.json
-    print(data)
+        data = request.json
+        print(data)
 
     #return webhook(session), 200
