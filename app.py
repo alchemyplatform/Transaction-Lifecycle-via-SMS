@@ -11,7 +11,14 @@ app.debug = True
 @app.route('/', methods=['POST', 'GET'])
 def request_handler():
     if request.method == 'POST':
-        data = request.json
-        print(data)
+        print(requst.json)
 
-    #return webhook(session), 200
+    //return webhook(session), 200
+
+def run():
+    app.run(host='0.0.0.0', port=5000)
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
