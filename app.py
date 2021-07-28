@@ -26,7 +26,7 @@ def request_handler():
 
         except:
 
-            if len(len(data['activity']))==1:
+            if len(data['activity'])==1:
                 timestamp = data['timestamp']
                 from_address = data['activity'][i]['fromAddress']
                 to_address = data['activity'][i]['toAddress']
