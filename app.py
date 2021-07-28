@@ -6,10 +6,10 @@ from webhook import webhook
 
 app = Flask(__name__)
 app.debug = True
+queue = []
 
 @app.route('/', methods=['POST', 'GET'])
 
-queue = []
 def request_handler():
 
     if request.method == 'POST':
