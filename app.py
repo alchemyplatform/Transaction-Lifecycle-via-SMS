@@ -15,6 +15,9 @@ def request_handler():
     if request.method == 'POST':
         data = (request.json)
 
+        print(data)
+        print("")
+
         try:
             if (data['local'] == 'true'):
                 queue.append(data['hash'])
