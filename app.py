@@ -18,32 +18,22 @@ def request_handler():
         print(data)
         print("")
 
-        try:
-            if (data['local'] == 'true'):
-                queue.append(data['hash'])
-                print("QUEUE UPDATED")
-                print(queue)
+        if len(data['activity'])==1:
+            timestamp = data['timestamp']
+            from_address = data['activity'][i]['fromAddress']
+            to_address = data['activity'][i]['toAddress']
+            blockNum =  data['activity'][i]['blockNum']
 
-        except:
+            print(timestamp)
 
-            if len(data['activity'])==1:
+        else:
+            for i in range(len(data['activity'])):
                 timestamp = data['timestamp']
                 from_address = data['activity'][i]['fromAddress']
                 to_address = data['activity'][i]['toAddress']
                 blockNum =  data['activity'][i]['blockNum']
-
-                print(timestamp)
-
-            else:
-                for i in range(len(data['activity'])):
-                    print(data['activity'][i])
-                    #if data['activity'][i]['hash'] in queue:
-                        #timestamp = data['timestamp']
-                        #from_address = data['activity'][i]['fromAddress']
-                        #to_address = data['activity'][i]['toAddress']
-                        #blockNum =  data['activity'][i]['blockNum']
-                        #queue.remove(data['activity'][i]['hash'])
-                        #print("FOUND")
+                #queue.remove(data['activity'][i]['hash'])
+                print("FOUND")
 
     return ("Ok")
     #return webhook(session), 200
