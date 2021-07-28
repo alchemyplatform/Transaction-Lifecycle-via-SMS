@@ -3,6 +3,14 @@ import os
 from flask import Flask
 from flask import request
 from webhook import webhook
+from twilio.rest import Client
+
+# Find your Account SID and Auth Token at twilio.com/console
+# and set the environment variables. See http://twil.io/secure
+account_sid = 'ACe63c4c0358c719f1359e6e30a14dd6c9'
+auth_token = 'fc160c7435aee7167038fe0e941dd0d9'
+client = Client(account_sid, auth_token)
+
 
 app = Flask(__name__)
 app.debug = True
@@ -20,11 +28,10 @@ def request_handler():
 
         if len(data['activity'])==1:
             timestamp = data['timestamp']
-            from_address = data['activity'][i]['fromAddress']
-            to_address = data['activity'][i]['toAddress']
-            blockNum =  data['activity'][i]['blockNum']
+            from_address = data['activity'][0]['fromAddress']
+            to_address = data['activity'][0]['toAddress']
+            blockNum =  data['activity'][0]['blockNum']
 
-            print(timestamp)
 
         else:
             for i in range(len(data['activity'])):
@@ -32,8 +39,15 @@ def request_handler():
                 from_address = data['activity'][i]['fromAddress']
                 to_address = data['activity'][i]['toAddress']
                 blockNum =  data['activity'][i]['blockNum']
-                #queue.remove(data['activity'][i]['hash'])
-                print("FOUND")
+
+		message = client.messages \
+		                .create(
+		                     body="TRANSACTION MINED! From: " + from_address + " -> to: " + to_address + " @#:" + blockNum,
+		                     from_='+14435267244',
+		                     to='+14158130071'
+		                 )
+
+		print(message.sid)
 
     return ("Ok")
     #return webhook(session), 200
