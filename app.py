@@ -36,13 +36,14 @@ def request_handler():
 
             else:
                 for i in range(len(data['activity'])):
-                    if data['activity'][i]['hash'] in queue:
-                        timestamp = data['timestamp']
-                        from_address = data['activity'][i]['fromAddress']
-                        to_address = data['activity'][i]['toAddress']
-                        blockNum =  data['activity'][i]['blockNum']
-                        queue.remove(data['activity'][i]['hash'])
-                        print("FOUND")
+                    print(data['activity'][i])
+                    #if data['activity'][i]['hash'] in queue:
+                        #timestamp = data['timestamp']
+                        #from_address = data['activity'][i]['fromAddress']
+                        #to_address = data['activity'][i]['toAddress']
+                        #blockNum =  data['activity'][i]['blockNum']
+                        #queue.remove(data['activity'][i]['hash'])
+                        #print("FOUND")
 
     return ("Ok")
     #return webhook(session), 200
