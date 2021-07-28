@@ -13,7 +13,7 @@ def request_handler():
     if request.method == 'POST':
         print(requst.json)
 
-    //return webhook(session), 200
+    #return webhook(session), 200
 
 def run():
     app.run(host='0.0.0.0', port=5000)
