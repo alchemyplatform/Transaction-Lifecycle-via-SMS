@@ -26,7 +26,7 @@ def request_handler():
 
         except:
 
-            for i in range(len(data['activity']))
+            for i in range(len(data['activity'])):
                 if data['activity'][i]['hash'] in queue:
                     timestamp = data['timestamp']
                     from_address = data['activity'][i]['fromAddress']
