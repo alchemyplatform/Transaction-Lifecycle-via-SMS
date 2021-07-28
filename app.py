@@ -40,12 +40,7 @@ def request_handler():
                 to_address = data['activity'][i]['toAddress']
                 blockNum =  data['activity'][i]['blockNum']
 
-		message = client.messages \
-		                .create(
-		                     body="TRANSACTION MINED! From: " + from_address + " -> to: " + to_address + " @#:" + blockNum,
-		                     from_='+14435267244',
-		                     to='+14158130071'
-		                 )
+		message = client.messages.create(body="TRANSACTION MINED! From: " + from_address + " -> to: " + to_address + " @#:" + blockNum,from_='+14435267244', to='+14158130071')
 
 		print(message.sid)
 
