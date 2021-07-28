@@ -31,6 +31,7 @@ def request_handler():
             from_address = data['activity'][0]['fromAddress']
             to_address = data['activity'][0]['toAddress']
             blockNum =  data['activity'][0]['blockNum']
+            hash =  data['activity'][0]['hash']
 
 
         else:
@@ -39,8 +40,9 @@ def request_handler():
                 from_address = data['activity'][i]['fromAddress']
                 to_address = data['activity'][i]['toAddress']
                 blockNum =  data['activity'][i]['blockNum']
+                hash =  data['activity'][i]['hash']
 
-        message = client.messages.create(body="TRANSACTION MINED! From: " + from_address + " -> to: " + to_address + " @#:" + blockNum,from_='+14435267244', to='+14158130071')
+        message = client.messages.create(body="TRANSACTION MINED! From: " + from_address + " -> to: " + to_address + " @#:" + blockNum + " CHECK HERE- https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
         print(message.sid)
 
     return ("Ok")
