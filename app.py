@@ -34,8 +34,8 @@ while True:
 	try:
 		result = ws.recv()
 		result = json.loads(result)
-		from_address = (result["params"]["result"]["from"])
-		to_address = (result["params"]["result"]["to"])
+        from_address = (result["params"]["result"]["from"])
+        to_address = (result["params"]["result"]["to"])
 
         try:
             hash = (result["params"]["result"]["hash"])
