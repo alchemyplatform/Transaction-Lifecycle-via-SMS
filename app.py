@@ -31,9 +31,9 @@ ws.send(json.dumps({"jsonrpc":"2.0","method":"eth_subscribe","params":["alchemy_
 print("JSON eth_subscribe sent")
 
 while True:
-	try:
-		result = ws.recv()
-		result = json.loads(result)
+    try:
+        result = ws.recv()
+        result = json.loads(result)
         from_address = (result["params"]["result"]["from"])
         to_address = (result["params"]["result"]["to"])
 
