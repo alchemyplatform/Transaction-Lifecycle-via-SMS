@@ -33,16 +33,16 @@ while True:
 		blockHash = (result["params"]["result"]["blockNumber"])
 
 		with open('data.json', 'r+') as f:
-		    data = json.load(f)
+			data = json.load(f)
 			print("DATA: ", data)
-		    data['queue'].append(hash)
+			data['queue'].append(hash)
 			json.dump(data, f, ensure_ascii=False, indent=4)
 
 
 		with open('data.json', 'r+') as f:
-		    data = json.load(f)
+			data = json.load(f)
 			print("DATA: ", data)
-		    data['queue'].append(hash)
+			data['queue'].append(hash)
 			json.dump(data, f, ensure_ascii=False, indent=4)
 
 
