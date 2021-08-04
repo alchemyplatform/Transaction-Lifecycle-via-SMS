@@ -10,7 +10,6 @@ account_sid = 'ACe63c4c0358c719f1359e6e30a14dd6c9'
 auth_token = 'fc160c7435aee7167038fe0e941dd0d9'
 client = Client(account_sid, auth_token)
 
-
 for i in range(3):
 	try:
 		ws = create_connection("wss://eth-rinkeby.alchemyapi.io/v2/Sj6KIf5jVp8VG7PC02ydEaMNhRu7VPy0")
@@ -33,7 +32,12 @@ while True:
 		hash = (result["params"]["result"]["hash"])
 		blockHash = (result["params"]["result"]["blockNumber"])
 
+		with open('data.txt', 'wb') as outfile:
+		    json.dump(data, outfile)
 
+		data['queue'].add(hash)
+		outfile.close()
+		
 		print("from:", from_address)
 		print("to:", to_address)
 		print("hash: ", hash)
