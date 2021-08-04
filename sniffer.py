@@ -34,7 +34,7 @@ while True:
 
 		with open('data.json', 'r+') as f:
 		    data = json.load(f)
-		    data['queue'].add(hash)
+		    data['queue'].append(hash)
 		    f.seek(0)        # <--- should reset file position to the beginning.
 		    json.dump(data, f, indent=4)
 		    f.truncate()     # remove remaining part
