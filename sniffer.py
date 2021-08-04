@@ -36,6 +36,7 @@ while True:
 		data = pickle.load( open( "data.p", "rb" ) )
 		data.add(hash)
 		pickle.dump(data, open( "data.p", "wb" ) )
+		data.close()
 
 		print("from:", from_address)
 		print("to:", to_address)
@@ -53,6 +54,7 @@ while True:
 
 		data = pickle.load( open( "data.p", "rb" ) )
 		print(data)
+		data.close()
 
 
 				# data to be sent to api
