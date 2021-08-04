@@ -47,17 +47,18 @@ def request_handler():
 				blockNum =  data['activity'][i]['blockNum']
 				hash =  data['activity'][i]['hash']
 
-		#with open('data.txt', 'wb') as outfile:
-		#    json.dump(data, outfile)
+		with open('data.json', 'r+') as f:
+		    data = json.load(f)
+		    if hash in data['queue']:
+				data['queue'].remove(hash)
 
-		#outfile.close()
+			    f.seek(0)        # <--- should reset file position to the beginning.
+			    json.dump(data, f, indent=4)
+			    f.truncate()     # remove remaining part
 
-		#if hash in data['queue']:
-		#	print("CONFIRMED")
-		#	data['queue'].remove(hash)
+				message = client.messages.create(body=" \n TRANSACTION MINED! \n From: " + from_address + " \n To: " + to_address + " \n @#:" + blockNum + " \n CHECK HERE- https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
+				print(message.sid)
 
-		message = client.messages.create(body=" \n TRANSACTION MINED! \n From: " + from_address + " \n To: " + to_address + " \n @#:" + blockNum + " \n CHECK HERE- https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
-		print(message.sid)
 
 	return ("Ok")
 	#return webhook(session), 200
