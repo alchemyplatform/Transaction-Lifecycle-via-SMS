@@ -49,10 +49,12 @@ def request_handler():
 				blockNum =  data['activity'][i]['blockNum']
 				hash =  data['activity'][i]['hash']
 
-		data = pickle.load( open( "data.p", "rb" ) )
+		data = pickle.load(open( "data.p", "rb" ))
+
+		print("DATA: ", data)
+		print("HASH: ", hash)
 
 		if hash in data:
-
 			data.remove(hash)
 			pickle.dump(data, open( "data.p", "wb" ) )
 
