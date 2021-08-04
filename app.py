@@ -52,9 +52,9 @@ def request_handler():
 
 		outfile.close()
 
-		if hash in data['queue']:
-			print("CONFIRMED")
-			data['queue'].remove(hash)
+		#if hash in data['queue']:
+		#	print("CONFIRMED")
+		#	data['queue'].remove(hash)
 
 		message = client.messages.create(body=" \n TRANSACTION MINED! \n From: " + from_address + " \n To: " + to_address + " \n @#:" + blockNum + " \n CHECK HERE- https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
 		print(message.sid)

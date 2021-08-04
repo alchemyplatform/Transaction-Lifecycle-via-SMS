@@ -32,12 +32,12 @@ while True:
 		hash = (result["params"]["result"]["hash"])
 		blockHash = (result["params"]["result"]["blockNumber"])
 
-		with open('data.txt', 'wb') as outfile:
-		    json.dump(data, outfile)
+		#with open('data.txt', 'wb') as outfile:
+		#    json.dump(data, outfile)
 
-		data['queue'].add(hash)
-		outfile.close()
-		
+		#data['queue'].add(hash)
+		#outfile.close()
+
 		print("from:", from_address)
 		print("to:", to_address)
 		print("hash: ", hash)
