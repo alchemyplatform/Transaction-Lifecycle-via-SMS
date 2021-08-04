@@ -47,10 +47,10 @@ def request_handler():
 				blockNum =  data['activity'][i]['blockNum']
 				hash =  data['activity'][i]['hash']
 
-		with open('data.txt', 'wb') as outfile:
-		    json.dump(data, outfile)
+		#with open('data.txt', 'wb') as outfile:
+		#    json.dump(data, outfile)
 
-		outfile.close()
+		#outfile.close()
 
 		#if hash in data['queue']:
 		#	print("CONFIRMED")
