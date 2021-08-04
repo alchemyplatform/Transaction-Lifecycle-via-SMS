@@ -51,6 +51,10 @@ while True:
 
 		print(message.sid)
 
+		data = pickle.load( open( "data.p", "rb" ) )
+		print(data)
+
+
 				# data to be sent to api
 		#data = {'local':'true','hash':hash}
 
