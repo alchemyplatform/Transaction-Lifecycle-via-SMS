@@ -32,19 +32,9 @@ while True:
 		hash = (result["params"]["result"]["hash"])
 		blockHash = (result["params"]["result"]["blockNumber"])
 
-		with open('data.json', 'r+') as f:
-			data = json.load(f)
-			print("DATA: ", data)
-			data['queue'].append(hash)
-			json.dump(data, f, ensure_ascii=False, indent=4)
-
-
-		with open('data.json', 'r+') as f:
-			data = json.load(f)
-			print("DATA: ", data)
-			data['queue'].append(hash)
-			json.dump(data, f, ensure_ascii=False, indent=4)
-
+		data = pickle.load( open( "data.p", "rb" ) )
+		data.add(hash)
+		pickle.dump(data, open( "data.p", "wb" ) )
 
 		print("from:", from_address)
 		print("to:", to_address)

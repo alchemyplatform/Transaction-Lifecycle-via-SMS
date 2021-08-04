@@ -8,6 +8,8 @@ import json, time
 import requests
 from websocket import create_connection
 import os
+import pickle
+
 from twilio.rest import Client
 
 # Find your Account SID and Auth Token at twilio.com/console
@@ -47,15 +49,15 @@ def request_handler():
 				blockNum =  data['activity'][i]['blockNum']
 				hash =  data['activity'][i]['hash']
 
-		with open('data.json', 'r+') as f:
-			data = json.load(f)
-			if hash in data['queue']:
-				data['queue'].remove(hash)
+		data = pickle.load( open( "data.p", "rb" ) )
 
-				json.dump(data, f, ensure_ascii=False, indent=4)
+		if hash in data:
 
-				message = client.messages.create(body=" \n TRANSACTION MINED! \n From: " + from_address + " \n To: " + to_address + " \n @#:" + blockNum + " \n CHECK HERE- https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
-				print(message.sid)
+			data.remove(hash)
+			pickle.dump(data, open( "data.p", "wb" ) )
+
+			message = client.messages.create(body=" \n TRANSACTION MINED! \n From: " + from_address + " \n To: " + to_address + " \n @#:" + blockNum + " \n CHECK HERE- https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
+			print(message.sid)
 
 
 	return ("Ok")
