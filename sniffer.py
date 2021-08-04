@@ -34,10 +34,17 @@ while True:
 
 		with open('data.json', 'r+') as f:
 		    data = json.load(f)
+			print("DATA: ", data)
 		    data['queue'].append(hash)
-		    f.seek(0)        # <--- should reset file position to the beginning.
-		    json.dump(data, f, indent=4)
-		    f.truncate()     # remove remaining part
+			json.dump(data, f, ensure_ascii=False, indent=4)
+
+
+		with open('data.json', 'r+') as f:
+		    data = json.load(f)
+			print("DATA: ", data)
+		    data['queue'].append(hash)
+			json.dump(data, f, ensure_ascii=False, indent=4)
+
 
 		print("from:", from_address)
 		print("to:", to_address)
