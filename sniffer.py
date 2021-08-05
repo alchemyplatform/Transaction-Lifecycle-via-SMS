@@ -33,7 +33,7 @@ while True:
 		hash = (result["params"]["result"]["hash"])
 		blockHash = (result["params"]["result"]["blockNumber"])
 
-		data = pickle.load( open( "data.p", "rb" ) )
+		data = pickle.load( open( "data.p", "wb" ) )
 		data.add(hash)
 		pickle.dump(data, open( "data.p", "wb" ) )
 
@@ -54,7 +54,8 @@ while True:
 		data = pickle.load( open( "data.p", "rb" ) )
 		print(data)
 
-
+		data = pickle.load( open( "data.p", "rb" ) )
+		print(data)
 				# data to be sent to api
 		#data = {'local':'true','hash':hash}
 
