@@ -34,7 +34,7 @@ while True:
 		blockHash = (result["params"]["result"]["blockNumber"])
 
 		with open("data.p", "wb") as f:
-		    data = pickle.load(f)
+			data = pickle.load(f)
 			data.add(hash)
 			pickle.dump(data, f)
 
@@ -53,7 +53,7 @@ while True:
 		print(message.sid)
 
 		with open("data.p", "wb") as f:
-		    data = pickle.load(f)
+			data = pickle.load(f)
 			print(data)
 
 

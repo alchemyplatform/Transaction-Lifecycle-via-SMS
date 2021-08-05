@@ -50,7 +50,7 @@ def request_handler():
 				hash =  data['activity'][i]['hash']
 
 		with open("data.p", "wb") as f:
-		    data = pickle.load(f)
+			data = pickle.load(f)
 
 		print("DATA: ", data)
 		print("HASH: ", hash)
