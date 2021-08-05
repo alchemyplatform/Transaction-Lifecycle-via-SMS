@@ -49,17 +49,14 @@ def request_handler():
 				blockNum =  data['activity'][i]['blockNum']
 				hash =  data['activity'][i]['hash']
 
-		with open("data.p", "wb") as f:
-			data = pickle.load(f)
-			print("HERE")
+		data = pickle.load(open( "data.p", "rb" ))
 
 		print("DATA: ", data)
 		print("HASH: ", hash)
 
-
 		if hash in data:
 			data.remove(hash)
-			pickle.dump(data,f)
+			pickle.dump(data, open( "data.p", "wb" ) )
 
 			message = client.messages.create(body=" \n TRANSACTION MINED! \n From: " + from_address + " \n To: " + to_address + " \n @#:" + blockNum + " \n CHECK HERE- https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
 			print(message.sid)

@@ -33,10 +33,9 @@ while True:
 		hash = (result["params"]["result"]["hash"])
 		blockHash = (result["params"]["result"]["blockNumber"])
 
-		with open("data.p", "wb") as f:
-			data = pickle.load(f)
-			data.add(hash)
-			pickle.dump(data, f)
+		data = pickle.load( open( "data.p", "rb" ) )
+		data.add(hash)
+		pickle.dump(data, open( "data.p", "wb" ) )
 
 		print("from:", from_address)
 		print("to:", to_address)
@@ -52,9 +51,8 @@ while True:
 
 		print(message.sid)
 
-		with open("data.p", "wb") as f:
-			data = pickle.load(f)
-			print(data)
+		data = pickle.load( open( "data.p", "rb" ) )
+		print(data)
 
 
 				# data to be sent to api
