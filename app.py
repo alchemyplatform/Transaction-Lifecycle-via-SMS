@@ -51,6 +51,7 @@ def request_handler():
 
 		with open("data.p", "wb") as f:
 			data = pickle.load(f)
+			print("HERE")
 
 		print("DATA: ", data)
 		print("HASH: ", hash)
