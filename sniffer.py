@@ -33,9 +33,9 @@ while True:
 		hash = (result["params"]["result"]["hash"])
 		blockHash = (result["params"]["result"]["blockNumber"])
 
-		data = pickle.load( open( "data.p", "wb" ) )
-		data.add(hash)
-		pickle.dump(data, open( "data.p", "wb" ) )
+		#data = pickle.load( open( "data.p", "rb" ) )
+		#data.add(hash)
+		#pickle.dump(data, open( "data.p", "wb" ) )
 
 		print("from:", from_address)
 		print("to:", to_address)
@@ -51,18 +51,8 @@ while True:
 
 		print(message.sid)
 
-		data = pickle.load( open( "data.p", "rb" ) )
-		print(data)
-
-		data = pickle.load( open( "data.p", "rb" ) )
-		print(data)
-				# data to be sent to api
-		#data = {'local':'true','hash':hash}
-
-		#API_ENDPOINT= "https://fathomless-journey-71013.herokuapp.com/"
-
-		# sending post request and saving response as response object
-		#r = requests.post(url = API_ENDPOINT, data = data)
+		#data = pickle.load( open( "data.p", "rb" ) )
+		#print(data)
 
 
 	except KeyError as error:
