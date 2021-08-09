@@ -44,7 +44,7 @@ while True:
 
 		message = client.messages \
 						.create(
-							 body="\n PENDING TRANSACTION! \n From: " + from_address + " \n To: " + to_address + "\n  @tx:" + hash,
+							 body="\n \n PENDING TX! \n\n From: " + from_address + " \n\n To: " + to_address + "\n\n  @tx:" + hash,
 							 from_='+14435267244',
 							 to='+14158130071'
 						 )

@@ -58,7 +58,7 @@ def request_handler():
 			#data.remove(hash)
 			#ickle.dump(data, open( "data.p", "wb" ) )
 
-		message = client.messages.create(body=" \n TRANSACTION MINED! \n From: " + from_address + " \n To: " + to_address + " \n @#:" + blockNum + " \n CHECK HERE- https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
+		message = client.messages.create(body=" \n\n TX MINED! \n\n From: " + from_address + " \n\n To: " + to_address + " \n\n @#:" + blockNum + " \n Check tx: https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
 		print(message.sid)
 
 
