@@ -1,9 +1,9 @@
 {
-  "name": "Python3 webhook",
-  "description": "Python template for Aimylogic Webhook. You'll be able to change it's code after deployment.",
-  "repository": "https://github.com/aimylogic/python-webhook",
-  "logo": "https://cdn.worldvectorlogo.com/logos/python-4.svg",
-  "website": "http://aimylogic.com",
+  "name": "Python3 SMS Tutorial on Tx Lifecycles",
+  "description": "",
+  "repository": "",
+  "logo": "",
+  "website": "",
   "buildpacks": [
     {
       "url": "heroku/python"
