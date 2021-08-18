@@ -1,104 +1,54 @@
-## Tracking Transaction Life Cycles via SMS
+## Tracking Transaction Life Cycles via SMS 📱
 
 While dApps on Ethereum have become incredibly complex, one of the largest pain points for Ethereum users is the lack of transparency and clarity surrounding a transaction's life cycle. Oftentimes, dApp users are left with uncertainty surrounding pending transactions, forcing them to constantly refresh block explorers or their wallet dashboards to check if their transactions have been confirmed/mined. 
 
+### Problem Statement: ###
 For dApps, simple notifications that track transaction life cycles provide a valuable user experience that allows for higher customer engagement, helping to alleviate the stress involved in pending transactions as Ethereum's ever-increasing gas fees force users to set lower `maxPriorityFeePerGas` to save money and inadvertently increase wait times. While building reliable transaction trackers has traditionally been complicated and unreliable, Alchemy Notify and Alchemy's pending transaction WebSocket allows us to monitor and send sending real-time push notifications regarding tx life cycles.  
 
+***
 In this tutorial, we’ll look at an example of how, with just a few lines of code, your dApp can integrate the power of Alchemy's Enhanced API suite, leveraging multiple Alchemy products to build a single feature to enhance user experience.
 
-### How to upload code changes
-Please make the next steps to upload your changes on Heroku.
 
-Install [git](https://git-scm.com/downloads) and [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install).
-Run a terminal (or console) on your machine and type
+### 🚀 Launching with Heroku ###
 
-```
-heroku login
-heroku git:clone -a <your Heroku application name>
-cd <your Heroku application name>
-git remote add origin https://github.com/aimylogic/python-webhook
-git pull origin master
-```
+ 1. Get the repo!
 
-_You have to do these steps only once._
+      * `https://github.com/alchemyplatform/Alchemy-Transfers-Tutorial`
 
-Once you are ready to upload your changes to Heroku, please type
+For all Heroku dependent documentation, refer to:
+https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true 
+for more detailed instructions.  The Heroku instructions included below are abridged.
 
-```
-git add .
-git commit -am "some comments"
-git push
-```
+ 2. Install Heroku-CLI and verify/install dependencies.
 
-Heroku will build and deploy your changes automatically.
+      * Download Heroku-CLI based on your OS [https://devcenter.heroku.com/articles/heroku-cli]
+      * After installation, open your terminal and run `heroku login`; follow the commands that follow to login to your Heroku account.  If you don't have a Heroku account, you can [sign up for one](https://dashboard.heroku.com/apps)!
+      * Run `node --version`.  You may have any version of Node greater than 10.  If you don’t have it or have an older version, install a more recent version of Node.
+      * Run `npm --version`.  `npm` is installed with Node, so check that it’s there. If you don’t have it, install a more recent version of Node:
+      * Run `git --version`   Check to make sure you have git installed.  
 
-## How to run this template locally in development mode
-Run a terminal (or console) and jump into the folder with your copy of this template.
-Type `python3 setup.py develop`, then `runwebhook`.
+ 3. Initiate Heroku.
+ 
+      * Run `heroku create` to create your heroku app. Take note of the info that pops up in the terminal, especially the URL that looks like  http://xxxxxxxxx.herokuapp.com/ That's the URL for your dashboard!
 
-Webhook will be running at localhost `0.0.0.0:5000`. To let Aimylogic server send requests to your webhook, you have to share localhost url `0.0.0.0:5000` with, e.g., [ngrok](https://ngrok.com/). Download ngrok and run it with:
-* ngrok.exe http 5000 _(windows)_
-* ./ngrok http 5000
+ 3. Add in your Alchemy API Key.
 
-Copy it and paste into the field named "Webhook for tests" in your bot's settings.
-**All requests to your webhook will go to your local machine** while you test your bot scenario via a test widget on Aimylogic. This is very useful for rapid development and debugging purposes.
+      > Change the Alchemy API Key in `main.py` to reflect your particular Alchemy auth token!  We recommend that you set this key in your environment variables. 
+       
+To set the API key in Heroku's environment variables, run: `heroku config:set KEY="<YOUR ALCHEMY KEY>"`
+      
+Don't forget to sign into your Alchemy account to use the Transfers API.  See https://docs.alchemy.com/alchemy/documentation/apis/enhanced-apis/transfers-api for more specific documentation.  
 
-_Note that you don't have to restart the local server each time you change any source file. Flask will handle it for you serving the same public URL._
+If you don’t already have an Alchemy account, [you’ll first need to create one](https://alchemy.com/?r=affiliate:ba2189be-b27d-4ce9-9d52-78ce131fdc2d). The free version will work fine for getting started.  First, we create an App for our Dashboard by clicking “Create App” under the Apps dropdown menu.
 
-## How to use this template
-`webhook.py` file contains all source code you need to change.
-Here you can add/remove action handlers for your webhook (please read more about webhook actions on [Help Center](https://help.aimylogic.com/en/article/webhook-14yx2uz/)).
+![webhook_1](https://github.com/pileofscraps/Alchemy-Transfers-Tutorial/blob/master/app.png)
+      
+Once we have created the app and pointed it towards the appropriate network, we're ready to go and can paste in our key.
 
-### How to add action handler
-You can change action behaviour in _webhook_ function inside `webhook.py`. 
+ 4. Deploy Heroku.
 
-*webhook.py*
-```python
-def webhook(session):
-    action = session['action']
-
-    if action == 'event1':
-        print('Received request from event1 action')
-        session['variable'] = 'some value'
-
-    return json.dumps(session)
-```
-
-Once the bot steps into the screen with enabled action _action1_, it calls your webhook and receives variable named _variable_ with value _"some value"_.
-
-### How to return multiple variables
-Just add variables in _session_ object
-
-```python
-def webhook(session):
-    action = session['action']
-
-    if action == 'event1':
-        print('Received request from event1 action')
-        session['variable1'] = 'value1'
-        session['variable2'] = 'value2'
-
-    return json.dumps(session)
-```
-
-This will provide _variable1_ and _variable2_ in Aimylogic scenario.
-
-### How to handle multiple actions
-You can add as many handlers as you need:
-
-
-*webhook.py*
-```python
-def webhook(session):
-    action = session['action']
-
-    if action == 'event1':
-        print('Received request from event1 action')
-        session['variable1'] = "value1"
-
-    elif action == 'event2':
-        print('Received request from event2 action')
-        session['variable2'] = "value2"
-
-    return json.dumps(session), 200
-```
+      * Run `git add .`
+      * Run `git commit -m "added Alchemy keys"`
+      * Run `git push heroku master` to push and deploy your heroku app.
+     
+🎉 Congratulations on your dApp deployment! Feel free to edit your app, change its behavior, or make the frontend more spiffy!
