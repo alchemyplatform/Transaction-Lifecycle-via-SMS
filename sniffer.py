@@ -7,10 +7,10 @@ import pickle
 
 # Find your Account SID and Auth Token at twilio.com/console
 # and set the environment variables. See http://twil.io/secure
-account_sid = 'ACe63c4c0358c719f1359e6e30a14dd6c9'
-auth_token = 'fc160c7435aee7167038fe0e941dd0d9'
+account_sid = '<TWILIO SID>'
+auth_token = '<TWILIO AUTH TOKEN>'
 client = Client(account_sid, auth_token)
-ALCHEMY_KEY = 'Sj6KIf5jVp8VG7PC02ydEaMNhRu7VPy0'
+ALCHEMY_KEY = '<ALCHEMY KEY>'
 
 for i in range(3):
 	try:
