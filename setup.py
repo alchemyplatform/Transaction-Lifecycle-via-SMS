@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='Python Webhook',
+    name='transaction_lifecycle_sms',
     version='1.0',
     packages=find_packages(),
     include_package_data=False,
