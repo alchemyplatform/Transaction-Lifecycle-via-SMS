@@ -10,10 +10,11 @@ import pickle
 account_sid = 'ACe63c4c0358c719f1359e6e30a14dd6c9'
 auth_token = 'fc160c7435aee7167038fe0e941dd0d9'
 client = Client(account_sid, auth_token)
+ALCHEMY_KEY = 'Sj6KIf5jVp8VG7PC02ydEaMNhRu7VPy0'
 
 for i in range(3):
 	try:
-		ws = create_connection("wss://eth-rinkeby.alchemyapi.io/v2/Sj6KIf5jVp8VG7PC02ydEaMNhRu7VPy0")
+		ws = create_connection("wss://eth-rinkeby.alchemyapi.io/v2/"+ALCHEMY_KEY)
 		print("Connection made")
 	except Exception as error:
 		print('Connection Error: ' + repr(error))
