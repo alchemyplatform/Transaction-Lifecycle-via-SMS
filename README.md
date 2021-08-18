@@ -1,14 +1,10 @@
-## Python webhook template
+## Tracking Transaction Life Cycles via SMS
+While dApps on Ethereum have become incredibly complex, one of the largest pain points for Ethereum users is the lack of transparency and clarity surrounding a transaction's life cycle.  Oftentimes, dApp users are left with uncertainty surrounding pending transactions, forcing them to constantly refresh block explorers or their wallet dashboards to check if their transactions have been confirmed/mined. 
 
-Please read more about Aimylogic webhooks in our [Help Center](https://help.aimylogic.com/en/article/webhook-14yx2uz/).
+For dApps, simple notifications that track transaction life cycles provide a valuable user experience that allows for higher customer engagement, helping to alleviate the stress involved in pending transactions as Ethereum's ever-increasing gas fees force users to set lower maxPriorityFeePerGas to save money and inadvertently increase wait times.  
+While building reliable transaction trackers has traditionally been complicated and unreliable, Alchemy Notify and Alchemy's pending transaction WebSocket allows us to monitor and send sending real-time push notifications regarding tx life cycles.  
 
-## How to run on Heroku
-[heroku.com](http://heroku.com) provides a free plan for Python applications.
-Please click on the button below to run your copy of this webhook on Heroku
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/aimylogic/python-webhook)
-
-Heroku will build and deploy your webhook automatically. After that you have to provide a public URL of your webhook in your bot's settings.
+In this tutorial, we’ll look at an example of how, with just a few lines of code, your dApp can integrate the power of Alchemy's Enhanced API suite, leveraging multiple Alchemy products to build a single feature to enhance user experience.
 
 ### How to upload code changes
 Please make the next steps to upload your changes on Heroku.
