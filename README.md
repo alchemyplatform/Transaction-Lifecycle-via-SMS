@@ -13,7 +13,7 @@ In this tutorial, we’ll look at an example of how, with just a few lines of co
 
  1. Get the repo!
 
-      * `https://github.com/alchemyplatform/Alchemy-Transfers-Tutorial`
+      * `https://github.com/alchemyplatform/Transaction-Lifecycle-via-SMS.git`
 
 For all Heroku dependent documentation, refer to:
 https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true 
