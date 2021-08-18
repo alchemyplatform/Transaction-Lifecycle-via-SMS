@@ -14,8 +14,8 @@ from twilio.rest import Client
 
 # Find your Account SID and Auth Token at twilio.com/console
 # and set the environment variables. See http://twil.io/secure
-account_sid = 'ACe63c4c0358c719f1359e6e30a14dd6c9'
-auth_token = 'fc160c7435aee7167038fe0e941dd0d9'
+account_sid = '<TWILIO SID>'
+auth_token = '<TWILIO AUTH TOKEN>'
 client = Client(account_sid, auth_token)
 
 
@@ -51,7 +51,7 @@ def request_handler():
 		print("HASH: ", hash)
 
 
-		message = client.messages.create(body=" \n\n TX MINED! \n\n From: " + from_address + " \n\n To: " + to_address + " \n\n @#:" + blockNum + " \n Check tx: https://rinkeby.etherscan.io/tx/" +hash ,from_='+14435267244', to='+14158130071')
+		message = client.messages.create(body=" \n\n TX MINED! \n\n From: " + from_address + " \n\n To: " + to_address + " \n\n @#:" + blockNum + " \n Check tx: https://rinkeby.etherscan.io/tx/" +hash ,from_='+14415267244', to='+14154230071')
 		print(message.sid)
 
 
