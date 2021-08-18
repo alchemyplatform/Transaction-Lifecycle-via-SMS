@@ -31,13 +31,26 @@ for more detailed instructions.  The Heroku instructions included below are abri
  
       * Run `heroku create` to create your heroku app. Take note of the info that pops up in the terminal, especially the URL that looks like  http://xxxxxxxxx.herokuapp.com/ That's the URL for your dashboard!
 
+ 4. Create Twilio account / configure SMS integration
+
+     * If you are new to Twilio, sign up for a trial account. With your trial account, you'll have enough credits to power your SMS notifications!  Once you've signed up, head over to your Console and grab your Account SID and your Auth Token. 
+
+     * Once you have a Twilio account,  note that sending messages through Twilio requires a Twilio phone number with SMS capabilities. If you don’t currently own a Twilio phone number with SMS capabilities, you’ll need to buy one with your provided credits. After navigating to the Buy a Number page, check the 'SMS' box and click 'Search' to find/buy a number that works for you!
+
+  > Open the `app.py` file.  
+  > Change lines  `17` and  `18` in the file to reflect your particular Twilio Account SID and Auth Token. 
+  > Change line `58` in the file to reflect the Twilio phone number that you acquired previously in  `the` from field and your own phone number in the  `to` field!
+
+  > Open the `sniffer.py` file.  
+  > Change lines  `10` and  `11` in the file to reflect your particular Twilio Account SID and Auth Token. 
+  > Change the twilio message snipper in the file to reflect the Twilio phone number that you acquired previously in  `the` from field and your own phone number in the  `to` field!
+
  3. Add in your Alchemy API Key.
 
-      > Change the Alchemy API Key in `main.py` to reflect your particular Alchemy auth token!  We recommend that you set this key in your environment variables. 
-       
-To set the API key in Heroku's environment variables, run: `heroku config:set KEY="<YOUR ALCHEMY KEY>"`
+      > Open `app.py` file.
+      > Replace line `13`'s "<Alchemy Key>"with your Alchemy key! We recommend that you set this key in your environment variables for prod environments. 
       
-Don't forget to sign into your Alchemy account to use the Transfers API.  See https://docs.alchemy.com/alchemy/documentation/apis/enhanced-apis/transfers-api for more specific documentation.  
+Don't forget to sign into your Alchemy account to use the Transfers / Notify API.  See https://docs.alchemy.com/alchemy/documentation/apis/enhanced-apis/transfers-api for more specific documentation.  
 
 If you don’t already have an Alchemy account, [you’ll first need to create one](https://alchemy.com/?r=affiliate:ba2189be-b27d-4ce9-9d52-78ce131fdc2d). The free version will work fine for getting started.  First, we create an App for our Dashboard by clicking “Create App” under the Apps dropdown menu.
 
