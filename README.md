@@ -64,4 +64,4 @@ Once we have created the app and pointed it towards the appropriate network, we'
       * Run `git commit -m "added Alchemy keys"`
       * Run `git push heroku master` to push and deploy your heroku app.
      
-🎉 Congratulations on your dApp deployment! Feel free to edit your app, change its behavior, or make the frontend more spiffy!
+🎉 Congratulations on your SMS iintegration! Feel free to edit your app, change its behavior, or add more functionality.
