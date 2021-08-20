@@ -2,7 +2,6 @@
 import os
 from flask import Flask
 from flask import request
-from webhook import webhook
 from twilio.rest import Client
 import json, time
 import requests
