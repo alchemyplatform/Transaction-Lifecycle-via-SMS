@@ -30,21 +30,21 @@ def request_handler():
 	if request.method == 'POST':
 		data = (request.json)
 		print(data)
-		if len(data['activity'])==1:
+		if len(data['event']['activity'])==1:
 			timestamp = data['timestamp']
-			from_address = data['activity'][0]['fromAddress']
-			to_address = data['activity'][0]['toAddress']
-			blockNum =  data['activity'][0]['blockNum']
-			hash =  data['activity'][0]['hash']
+			from_address = data['event']['activity'][0]['fromAddress']
+			to_address = data['event']['activity'][0]['toAddress']
+			blockNum =  data['event']['activity'][0]['blockNum']
+			hash =  data['event']['activity'][0]['hash']
 
 
 		else:
-			for i in range(len(data['activity'])):
+			for i in range(len(data['event']['activity'])):
 				timestamp = data['timestamp']
-				from_address = data['activity'][i]['fromAddress']
-				to_address = data['activity'][i]['toAddress']
-				blockNum =  data['activity'][i]['blockNum']
-				hash =  data['activity'][i]['hash']
+				from_address = data['event']['activity'][i]['fromAddress']
+				to_address = data['event']['activity'][i]['toAddress']
+				blockNum =  data['event']['activity'][i]['blockNum']
+				hash =  data['event']['activity'][i]['hash']
 
 
 		print("DATA: ", data)
