@@ -22,7 +22,7 @@ app = Flask(__name__)
 app.debug = True
 queue = []
 
-@app.route('/alchemyhook', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 
 def request_handler():
 	print("Getting Mined tx!!!")
