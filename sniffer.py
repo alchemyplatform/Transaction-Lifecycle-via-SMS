@@ -22,7 +22,7 @@ for i in range(3):
 	else:
 		break
 
-ws.send(json.dumps({"jsonrpc":"2.0","method":"eth_subscribe","params":["alchemy_filteredNewFullPendingTransactions", {"address": "0xcF3A24407aae7c87bd800c47928C5F20Cd4764D2"}],"id":1}))
+ws.send(json.dumps({"jsonrpc":"2.0","method":"eth_subscribe","params":["alchemy_filteredNewFullPendingTransactions", {"address": "0xccD3dd576e715b0E060169e16C39Cd7E6eEdeF51"}],"id":1}))
 print("JSON eth_subscribe sent")
 
 while True:
