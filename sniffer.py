@@ -46,10 +46,10 @@ while True:
 		message = client.messages \
 						.create(
 							 body="\n \n PENDING TX! \n\n From: " + from_address + " \n\n To: " + to_address + "\n\n  @tx:" + hash,
-							 from_='+14435267244',
-							 to='+14158130071'
+							 from_='+19705361926',
+							 to='+919557040676'
 						 )
-
+		print("Checking for pending txns!!!!!!!")
 		print(message.sid)
 
 		#data = pickle.load( open( "data.p", "rb" ) )

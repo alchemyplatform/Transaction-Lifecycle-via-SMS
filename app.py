@@ -22,13 +22,13 @@ app = Flask(__name__)
 app.debug = True
 queue = []
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/alchemyhook', methods=['POST', 'GET'])
 
 def request_handler():
-
+	print("Getting Mined tx!!!")
 	if request.method == 'POST':
 		data = (request.json)
-
+		print(data)
 		if len(data['activity'])==1:
 			timestamp = data['timestamp']
 			from_address = data['activity'][0]['fromAddress']
