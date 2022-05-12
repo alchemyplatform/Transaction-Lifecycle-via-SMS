@@ -26,7 +26,7 @@ queue = []
 
 def request_handler():
 	print("Getting Mined tx!!!")
-	print(request.json)
+	print(request)
 	if request.method == 'POST':
 		data = (request.json)
 		print(data)
