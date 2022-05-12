@@ -31,7 +31,7 @@ def request_handler():
 		data = (request.json)
 		print(data)
 		if len(data['event']['activity'])==1:
-			timestamp = data['timestamp']
+			timestamp = data['createdAt']
 			from_address = data['event']['activity'][0]['fromAddress']
 			to_address = data['event']['activity'][0]['toAddress']
 			blockNum =  data['event']['activity'][0]['blockNum']
@@ -40,7 +40,7 @@ def request_handler():
 
 		else:
 			for i in range(len(data['event']['activity'])):
-				timestamp = data['timestamp']
+				timestamp = data['createdAt']
 				from_address = data['event']['activity'][i]['fromAddress']
 				to_address = data['event']['activity'][i]['toAddress']
 				blockNum =  data['event']['activity'][i]['blockNum']
