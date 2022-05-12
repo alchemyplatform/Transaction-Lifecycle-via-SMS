@@ -7,10 +7,10 @@ import pickle
 
 # Find your Account SID and Auth Token at twilio.com/console
 # and set the environment variables. See http://twil.io/secure
-account_sid = 'AC6ad5ff1f49211e3f0a635dbea3a664f2'
-auth_token = 'cb30e22c26adba34605f96dc66e8a381'
+account_sid = '<TWILIO SID>'
+auth_token = '<TWILIO AUTH TOKEN>'
 client = Client(account_sid, auth_token)
-ALCHEMY_KEY = 'aPT9cd5pETtsGl6vbCpWYsCJrAWhzX1k'
+ALCHEMY_KEY = '<ALCHEMY KEY>'
 
 for i in range(3):
 	try:
@@ -43,13 +43,14 @@ while True:
 		print("hash: ", hash)
 		print("blockHash: ", blockHash)
 
+		print("Send Twilio SMS for pending transaction!")
 		message = client.messages \
 						.create(
 							 body="\n \n PENDING TX! \n\n From: " + from_address + " \n\n To: " + to_address + "\n\n  @tx:" + hash,
-							 from_='+19705361926',
-							 to='+919557040676'
+							 from_='+14435267244',
+							 to='+14158130071'
 						 )
-		print("Checking for pending txns!!!!!!!")
+
 		print(message.sid)
 
 		#data = pickle.load( open( "data.p", "rb" ) )

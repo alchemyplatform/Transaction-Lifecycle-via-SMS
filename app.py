@@ -13,8 +13,8 @@ from twilio.rest import Client
 
 # Find your Account SID and Auth Token at twilio.com/console
 # and set the environment variables. See http://twil.io/secure
-account_sid = 'AC6ad5ff1f49211e3f0a635dbea3a664f2'
-auth_token = 'cb30e22c26adba34605f96dc66e8a381'
+account_sid = '<TWILIO SID>'
+auth_token = '<TWILIO AUTH TOKEN>'
 client = Client(account_sid, auth_token)
 
 
@@ -25,11 +25,9 @@ queue = []
 @app.route('/', methods=['POST', 'GET'])
 
 def request_handler():
-	print("Getting Mined tx!!!")
-	print(request)
+	print("Sending Twilio SMS for Mined transaction if webhook received!")
 	if request.method == 'POST':
 		data = (request.json)
-		print(data)
 		if len(data['event']['activity'])==1:
 			timestamp = data['createdAt']
 			from_address = data['event']['activity'][0]['fromAddress']
@@ -51,7 +49,7 @@ def request_handler():
 		print("HASH: ", hash)
 
 
-		message = client.messages.create(body=" \n\n TX MINED! \n\n From: " + from_address + " \n\n To: " + to_address + " \n\n @#:" + blockNum + " \n Check tx: https://rinkeby.etherscan.io/tx/" +hash ,from_='+19705361926', to='+919557040676')
+		message = client.messages.create(body=" \n\n TX MINED! \n\n From: " + from_address + " \n\n To: " + to_address + " \n\n @#:" + blockNum + " \n Check tx: https://rinkeby.etherscan.io/tx/" +hash ,from_='+14415267244', to='+14154230071')
 		print(message.sid)
 
 
